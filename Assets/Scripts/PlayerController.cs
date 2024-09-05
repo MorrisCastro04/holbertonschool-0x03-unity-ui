@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    public float speed = 10;
+    public float speed;
     private float MovementX, MovementY;
+    private int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,15 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(MovementX, 0, MovementY);
 
         rb.AddForce(movement * speed);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickup"))
+        {
+            score++;
+            Debug.Log($"Score: {score}");
+            Destroy(other.gameObject);
+        }
     }
 }
