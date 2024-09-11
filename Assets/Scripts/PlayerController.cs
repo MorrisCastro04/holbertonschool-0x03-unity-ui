@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float MovementX, MovementY;
     private int score = 0;
     private Vector3 otherTeleporter;
+    public TMP_Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             score++;
-            Debug.Log($"Score: {score}");
+            SetScoreText();
             Destroy(other.gameObject);
         }
 
@@ -79,5 +81,10 @@ public class PlayerController : MonoBehaviour
     {
         if (TeleporterName == other.name)
             isTeleport = false;
+    }
+
+    void SetScoreText()
+    {
+        scoreText.text = $"Score: {score.ToString()}";
     }
 }

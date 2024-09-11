@@ -1321,6 +1321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   health: 5
+  scoreText: {fileID: 1933269794}
 --- !u!54 &242505971
 Rigidbody:
   m_ObjectHideFlags: 0
