@@ -30,8 +30,11 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log("Game Over!");
+            WinLoseText.text = "Game Over!";
+            WinLoseText.color = Color.white;
+            WinLoseBG.GetComponent<Image>().color = Color.red;
             SceneManager.LoadScene("maze");
+            WinLoseBG.SetActive(true);
         }
     }
 
