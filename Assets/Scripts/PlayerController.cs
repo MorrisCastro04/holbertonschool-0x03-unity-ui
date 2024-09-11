@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
             WinLoseText.text = "Game Over!";
             WinLoseText.color = Color.white;
             WinLoseBG.GetComponent<Image>().color = Color.red;
-            SceneManager.LoadScene("maze");
             WinLoseBG.SetActive(true);
+            StartCoroutine(LoadScene(3));
         }
     }
 
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
             WinLoseText.color = Color.black;
             WinLoseText.text = "You Win!";
             WinLoseBG.SetActive(true);
+            StartCoroutine(LoadScene(3));
         }
 
         if (other.CompareTag("Teleporter") && isTeleport == false)
@@ -100,5 +101,10 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = $"Health: {health.ToString()}";
+    }
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("maze");
     }
 }
