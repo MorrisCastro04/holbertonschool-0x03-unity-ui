@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 otherTeleporter;
     public TMP_Text scoreText;
     public TMP_Text healthText;
+    public TMP_Text WinLoseText;
+    public GameObject WinLoseBG;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +62,10 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Goal"))
         {
-            Debug.Log("You win!");
+            WinLoseBG.GetComponent<Image>().color = Color.green;
+            WinLoseText.color = Color.black;
+            WinLoseText.text = "You Win!";
+            WinLoseBG.SetActive(true);
         }
 
         if (other.CompareTag("Teleporter") && isTeleport == false)

@@ -1323,6 +1323,7 @@ MonoBehaviour:
   health: 5
   scoreText: {fileID: 1933269794}
   healthText: {fileID: 536801013}
+  WinLoseText: {fileID: 1174591596}
 --- !u!54 &242505971
 Rigidbody:
   m_ObjectHideFlags: 0
